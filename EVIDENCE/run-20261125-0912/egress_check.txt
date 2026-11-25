@@ -1,0 +1,2 @@
+peers seen: 127.0.0.1:18809
+PASS: no non-loopback peer observed

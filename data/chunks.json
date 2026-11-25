@@ -1,0 +1,44 @@
+{
+  "source": "dialogue.wav",
+  "sample_rate": 16000,
+  "chunk_seconds": 30.0,
+  "overlap_seconds": 2.0,
+  "chunks": [
+    {
+      "chunk_id": "chunk_0000",
+      "path": "chunk_0000.wav",
+      "start_ms": 0,
+      "end_ms": 30000
+    },
+    {
+      "chunk_id": "chunk_0001",
+      "path": "chunk_0001.wav",
+      "start_ms": 28000,
+      "end_ms": 58000
+    },
+    {
+      "chunk_id": "chunk_0002",
+      "path": "chunk_0002.wav",
+      "start_ms": 56000,
+      "end_ms": 86000
+    },
+    {
+      "chunk_id": "chunk_0003",
+      "path": "chunk_0003.wav",
+      "start_ms": 84000,
+      "end_ms": 114000
+    },
+    {
+      "chunk_id": "chunk_0004",
+      "path": "chunk_0004.wav",
+      "start_ms": 112000,
+      "end_ms": 142000
+    },
+    {
+      "chunk_id": "chunk_0005",
+      "path": "chunk_0005.wav",
+      "start_ms": 140000,
+      "end_ms": 142888
+    }
+  ]
+}

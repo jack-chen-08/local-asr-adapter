@@ -1,0 +1,11 @@
+# Adapter image: pure client, no model, no outbound network except the local service.
+FROM python:3.11-slim
+
+ENV PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1 PYTHONPATH=/app/src
+
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY src /app/src
+
+ENTRYPOINT ["python", "-m", "asr_adapter.cli"]

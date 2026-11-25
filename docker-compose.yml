@@ -1,0 +1,38 @@
+# Two services, one network segment, no outbound route required at runtime.
+#   docker compose up -d asr          # inference only
+#   docker compose run --rm adapter   # transcribe a chunk list
+services:
+  asr:
+    build:
+      context: .
+      dockerfile: Dockerfile.asr
+    image: local-asr-service:1.0.0
+    ports:
+      - "127.0.0.1:8809:8809"
+    environment:
+      IP_ASR_DEVICE: cpu
+      ASR_LOG_LEVEL: INFO
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8809/healthz"]
+      interval: 10s
+      timeout: 3s
+      retries: 6
+      start_period: 20s
+    restart: unless-stopped
+
+  adapter:
+    build:
+      context: .
+      dockerfile: Dockerfile.adapter
+    image: asr-adapter:1.0.0
+    depends_on:
+      asr:
+        condition: service_healthy
+    environment:
+      IP_ASR_URL: http://asr:8809
+      IP_ASR_CONCURRENCY: "2"
+      IP_ASR_RETRIES: "2"
+    volumes:
+      - ./data:/data:ro
+      - ./out:/out
+    command: ["python", "-m", "asr_adapter.cli", "--chunks", "/data/chunks.json", "--out", "/out/transcript.json"]

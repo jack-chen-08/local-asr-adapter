@@ -1,0 +1,53 @@
+{
+  "draft": true,
+  "segments": [
+    {
+      "start_ms": 0,
+      "end_ms": 1200,
+      "text": "stub"
+    },
+    {
+      "start_ms": 28000,
+      "end_ms": 29200,
+      "text": "stub"
+    },
+    {
+      "start_ms": 56000,
+      "end_ms": 57200,
+      "text": "stub"
+    },
+    {
+      "start_ms": 84000,
+      "end_ms": 85200,
+      "text": "stub"
+    },
+    {
+      "start_ms": 112000,
+      "end_ms": 113200,
+      "text": "stub"
+    },
+    {
+      "start_ms": 140000,
+      "end_ms": 141200,
+      "text": "stub"
+    }
+  ],
+  "stats": {
+    "chunks_total": 6,
+    "chunks_ok": 6,
+    "chunks_failed": 0,
+    "removed_duplicates": 0,
+    "requests": 6,
+    "elapsed_s": 1.21,
+    "concurrency": 2
+  },
+  "errors": [],
+  "chunk_timings": {
+    "chunk_0000": 0.405,
+    "chunk_0001": 0.405,
+    "chunk_0002": 0.405,
+    "chunk_0003": 0.404,
+    "chunk_0004": 0.404,
+    "chunk_0005": 0.404
+  }
+}

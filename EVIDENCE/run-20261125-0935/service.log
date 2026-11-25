@@ -1,0 +1,106 @@
+INFO:     Started server process [1027345]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8809 (Press CTRL+C to quit)
+INFO:     127.0.0.1:37312 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37316 - "GET /healthz HTTP/1.1" 200 OK
+INFO:root:download models from model hub: ms
+INFO:root:Loading pretrained params from /home/ubuntuuser/clawhunt_delivery/2284_asr_adapter/models/paraformer-zh/model.pt
+INFO:root:ckpt: /home/ubuntuuser/clawhunt_delivery/2284_asr_adapter/models/paraformer-zh/model.pt
+INFO:root:scope_map: ['module.', 'None']
+INFO:root:excludes: None
+INFO:root:Loading ckpt: /home/ubuntuuser/clawhunt_delivery/2284_asr_adapter/models/paraformer-zh/model.pt, status: <All keys matched successfully>
+INFO:root:Building VAD model.
+INFO:root:download models from model hub: ms
+INFO:root:Loading pretrained params from /home/ubuntuuser/clawhunt_delivery/2284_asr_adapter/models/fsmn-vad/model.pt
+INFO:root:ckpt: /home/ubuntuuser/clawhunt_delivery/2284_asr_adapter/models/fsmn-vad/model.pt
+INFO:root:scope_map: ['module.', 'None']
+INFO:root:excludes: None
+INFO:root:Loading ckpt: /home/ubuntuuser/clawhunt_delivery/2284_asr_adapter/models/fsmn-vad/model.pt, status: <All keys matched successfully>
+INFO:root:Building punc model.
+INFO:root:download models from model hub: ms
+INFO:root:Loading pretrained params from /home/ubuntuuser/clawhunt_delivery/2284_asr_adapter/models/ct-punc-c/model.pt
+INFO:root:ckpt: /home/ubuntuuser/clawhunt_delivery/2284_asr_adapter/models/ct-punc-c/model.pt
+INFO:root:scope_map: ['module.', 'None']
+INFO:root:excludes: None
+INFO:root:Loading ckpt: /home/ubuntuuser/clawhunt_delivery/2284_asr_adapter/models/ct-punc-c/model.pt, status: <All keys matched successfully>
+INFO:asr_service:model /home/ubuntuuser/clawhunt_delivery/2284_asr_adapter/models/paraformer-zh + vad /home/ubuntuuser/clawhunt_delivery/2284_asr_adapter/models/fsmn-vad + punc /home/ubuntuuser/clawhunt_delivery/2284_asr_adapter/models/ct-punc-c loaded in 6.4s on cpu
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:asr_service:transcribed 960044 bytes, 12 segments in 3.50s
+Notice: ffmpeg is not installed. torchaudio is used to load audio
+If you want to use ffmpeg backend to load audio, please install it by:
+	sudo apt install ffmpeg # ubuntu
+	# brew install ffmpeg # mac
+funasr version: 1.2.6.
+INFO:     127.0.0.1:37316 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:asr_service:transcribed 960044 bytes, 14 segments in 3.38s
+INFO:     127.0.0.1:37318 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:asr_service:transcribed 960044 bytes, 14 segments in 3.67s
+INFO:     127.0.0.1:37316 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:asr_service:transcribed 960044 bytes, 12 segments in 4.79s
+INFO:     127.0.0.1:37318 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:asr_service:transcribed 960044 bytes, 12 segments in 3.58s
+INFO:     127.0.0.1:37316 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:root:Attempting to parse hotwords as str...
+INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
+INFO:asr_service:transcribed 92460 bytes, 2 segments in 0.53s
+INFO:     127.0.0.1:37318 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [1027345]

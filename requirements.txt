@@ -1,0 +1,2 @@
+# Adapter (client) runtime deps — no model, no torch.
+httpx>=0.27,<0.29

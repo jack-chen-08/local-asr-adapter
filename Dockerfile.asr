@@ -1,0 +1,37 @@
+# Local ASR service image. The model is downloaded at build time and baked in, so the
+# running container needs no internet (verified with `docker run --network none`).
+FROM python:3.12-slim
+
+ENV PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    IP_ASR_MODEL=paraformer-zh \
+    IP_ASR_MODEL_DIR=/models \
+    IP_ASR_DEVICE=cpu \
+    MODELSCOPE_CACHE=/models
+
+WORKDIR /app
+
+# ffmpeg is only needed if the caller feeds non-wav audio; chunks from the splitter are wav.
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends ffmpeg curl \
+ && rm -rf /var/lib/apt/lists/*
+
+COPY requirements-service.txt ./
+# CPU wheels first: installing them after funasr would let pip pull the CUDA build (~2.5 GB).
+RUN pip install --index-url https://download.pytorch.org/whl/cpu "torch==2.6.0+cpu" "torchaudio==2.6.0+cpu" \
+ && pip install -r requirements-service.txt
+
+# Bake the model: this is the only network step, and it happens at build time.
+# MODELSCOPE_CACHE=/models makes the weights land inside the image.
+RUN python -c "from funasr import AutoModel; \
+AutoModel(model='paraformer-zh', model_revision='v2.0.4', device='cpu', \
+disable_update=True, disable_pbar=True, disable_log=True)" \
+ && du -sh /models
+
+COPY service/server.py /app/server.py
+
+EXPOSE 8809
+HEALTHCHECK --interval=10s --timeout=3s --start-period=20s --retries=6 \
+  CMD curl -fsS http://127.0.0.1:8809/healthz || exit 1
+
+CMD ["uvicorn", "server:app", "--host", "0.0.0.0", "--port", "8809", "--workers", "1"]

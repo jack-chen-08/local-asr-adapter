@@ -1,0 +1,292 @@
+{
+  "cer_overall": 0.0754,
+  "ref_chars": 544,
+  "hyp_chars": 582,
+  "segments": 6,
+  "duplicates_removed": 0,
+  "failed_chunks": 0,
+  "hotword_recall": 1.0,
+  "hotwords": [
+    {
+      "hotword": "玥合冷链",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "青浦仓",
+      "in_reference": 3,
+      "in_transcript": 3,
+      "recalled": true
+    },
+    {
+      "hotword": "温控箱",
+      "in_reference": 2,
+      "in_transcript": 2,
+      "recalled": true
+    },
+    {
+      "hotword": "到货验收单",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "部分拒收单",
+      "in_reference": 2,
+      "in_transcript": 2,
+      "recalled": true
+    },
+    {
+      "hotword": "返利点位",
+      "in_reference": 2,
+      "in_transcript": 2,
+      "recalled": true
+    },
+    {
+      "hotword": "温控曲线",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "补冷媒",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "干线调度",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "季度对账单",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    }
+  ],
+  "timing": {
+    "chunks": 6,
+    "p50_s": 4.22,
+    "p95_s": 12.52,
+    "max_s": 14.58,
+    "sum_s": 42.31,
+    "wall_s": 21.4,
+    "audio_s": 142.89,
+    "rtf_summed": 0.296,
+    "rtf_wall": 0.15,
+    "concurrency": 2
+  },
+  "turns": [
+    {
+      "speaker": "客服",
+      "start_ms": 0,
+      "ref_chars": 19,
+      "hyp_chars": 121,
+      "cer": 5.3684,
+      "ref": "您好，玥合冷链客服中心，请问有什么可以帮您。",
+      "hyp": "您好玥合冷链客服中心请问有什么可以帮您您好我这边是青浦仓的收货组昨天到的那批货温度好像不对您说的是昨天下午到青浦仓的三号车吗车牌尾号是七三二那一趟对就是那趟我们抽检的时候发现三号温控箱的记录偏高了两度明白我先把这张到货验收单调出来您方便报一下"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 5240,
+      "ref_chars": 26,
+      "hyp_chars": 0,
+      "cer": 1.0,
+      "ref": "你好，我这边是青浦仓的收货组，昨天到的那批货温度好像不对。",
+      "hyp": ""
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 11392,
+      "ref_chars": 28,
+      "hyp_chars": 0,
+      "cer": 1.0,
+      "ref": "您说的是昨天下午到青浦仓的三号车吗，车牌尾号是七三二那一趟。",
+      "hyp": ""
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 18120,
+      "ref_chars": 27,
+      "hyp_chars": 0,
+      "cer": 1.0,
+      "ref": "对，就是那趟，我们抽检的时候发现三号温控箱的记录偏高了两度。",
+      "hyp": ""
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 25424,
+      "ref_chars": 24,
+      "hyp_chars": 118,
+      "cer": 4.75,
+      "ref": "明白，我先把这张到货验收单调出来，您方便报一下单号吗。",
+      "hyp": "单调出来您方便报一下单号吗单号是 KF 二零七六后面还有四位是三九一八好的 KF 二零七六三九一八我看到这趟车在途中补过一次冷煤补冷媒我们是知道的但是补完之后温控曲线没有回落到零下十八度这个情况我需要升级给干线调度按合同第六条属于异常到货可以据"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 31432,
+      "ref_chars": 20,
+      "hyp_chars": 0,
+      "cer": 1.0,
+      "ref": "单号是 K F 二零七六，后面还有四位是三九一八。",
+      "hyp": ""
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 37440,
+      "ref_chars": 27,
+      "hyp_chars": 0,
+      "cer": 1.0,
+      "ref": "好的，KF 二零七六三九一八，我看到这趟车在途中补过一次冷媒。",
+      "hyp": ""
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 44624,
+      "ref_chars": 29,
+      "hyp_chars": 0,
+      "cer": 1.0,
+      "ref": "补冷媒我们是知道的，但是补完之后温控曲线没有回落到零下十八度。",
+      "hyp": ""
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 51544,
+      "ref_chars": 30,
+      "hyp_chars": 111,
+      "cer": 3.5,
+      "ref": "这个情况我需要升级给干线调度，按合同第六条属于异常到货，可以拒收。",
+      "hyp": "属于异常到货可以拒收我们不想整批拒收只想把这三箱单独挑出来做退货处理可以那我给您开一张部分拒收单剩下的货正常入库不影响到货时效行那退运的运费怎么算是我们承担还是你们承担因为是温控异常按合约由承运方承担运费会走月度对账抵扣好"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 59112,
+      "ref_chars": 24,
+      "hyp_chars": 0,
+      "cer": 1.0,
+      "ref": "我们不想整批拒收，只想把这三箱单独挑出来做退货处理。",
+      "hyp": ""
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 65216,
+      "ref_chars": 29,
+      "hyp_chars": 0,
+      "cer": 1.0,
+      "ref": "可以，那我给您开一张部分拒收单，剩下的货正常入库，不影响到货时效。",
+      "hyp": ""
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 72400,
+      "ref_chars": 21,
+      "hyp_chars": 0,
+      "cer": 1.0,
+      "ref": "行，那退运的运费怎么算，是我们承担还是你们承担。",
+      "hyp": ""
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 78432,
+      "ref_chars": 26,
+      "hyp_chars": 115,
+      "cer": 4.2692,
+      "ref": "因为是温控异常，按合约由承运方承担，运费会走月度对账抵扣。",
+      "hyp": "让抵扣好另外上个季度的返利点位是不是也该结算了返利点位按百分之一点五算季度对账单我这边明天发您邮箱邮箱还是发货通知那个收件人是财务的小周收到我会同时抄送青浦仓的负责人麻烦您留意一下附件还有一件事下个月的温控箱能不能多配两台 KF 二零"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 85496,
+      "ref_chars": 20,
+      "hyp_chars": 0,
+      "cer": 1.0,
+      "ref": "好，另外上个季度的返利点位是不是也该结算了。",
+      "hyp": ""
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 91120,
+      "ref_chars": 26,
+      "hyp_chars": 0,
+      "cer": 1.0,
+      "ref": "返利点位按百分之一点五算，季度对账单我这边明天发您邮箱。",
+      "hyp": ""
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 97440,
+      "ref_chars": 19,
+      "hyp_chars": 0,
+      "cer": 1.0,
+      "ref": "邮箱还是发货通知那个，收件人是财务的小周。",
+      "hyp": ""
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 102392,
+      "ref_chars": 24,
+      "hyp_chars": 0,
+      "cer": 1.0,
+      "ref": "收到，我会同时抄送青浦仓的负责人，麻烦您留意一下附件。",
+      "hyp": ""
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 108448,
+      "ref_chars": 23,
+      "hyp_chars": 107,
+      "cer": 4.5217,
+      "ref": "还有一件事，下个月的温控箱能不能多配两台 K F 二零。",
+      "hyp": "台 KF 二零 KF 二零我这边看到还有十二台可用您需要几台我帮您预留先留四台等排产确认了我再追加可的四台我记下来预留到本周五过期自动释放可以那就这样退货单出来麻烦发我一份没问题退货单和部分拒收单我今天下午一起发您感谢来电"
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 114744,
+      "ref_chars": 26,
+      "hyp_chars": 0,
+      "cer": 1.0,
+      "ref": "KF 二零我这边看到还有十二台可用，您需要几台，我帮您预留。",
+      "hyp": ""
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 121136,
+      "ref_chars": 14,
+      "hyp_chars": 0,
+      "cer": 1.0,
+      "ref": "先留四台，等排产确认了我再追加。",
+      "hyp": ""
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 125872,
+      "ref_chars": 20,
+      "hyp_chars": 0,
+      "cer": 1.0,
+      "ref": "好的，四台我记下来，预留到本周五，过期自动释放。",
+      "hyp": ""
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 131520,
+      "ref_chars": 17,
+      "hyp_chars": 0,
+      "cer": 1.0,
+      "ref": "可以，那就这样，退货单出来麻烦发我一份。",
+      "hyp": ""
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 136448,
+      "ref_chars": 25,
+      "hyp_chars": 10,
+      "cer": 0.6,
+      "ref": "没问题，退货单和部分拒收单我今天下午一起发您，感谢来电。",
+      "hyp": "下午一起发您感谢来电"
+    }
+  ]
+}

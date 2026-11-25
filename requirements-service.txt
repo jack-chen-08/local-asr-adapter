@@ -1,0 +1,10 @@
+# Service runtime deps. torch/torchaudio come from the PyTorch CPU index (see Dockerfile.asr)
+# and are installed before this file so the CPU wheels are not replaced by the default index.
+fastapi>=0.110,<0.200
+uvicorn>=0.29,<0.60
+python-multipart>=0.0.9
+numpy>=1.26
+soundfile>=0.12
+librosa>=0.10
+funasr==1.2.6
+modelscope>=1.15

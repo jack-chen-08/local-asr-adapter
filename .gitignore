@@ -10,3 +10,7 @@ models/
 # run artefacts are kept (small, they are the evidence), but keep the latest out of `out/`
 out/*.json
 !out/egress_check.json
+/out/
+/data/a/
+/data/b/
+/data/c/

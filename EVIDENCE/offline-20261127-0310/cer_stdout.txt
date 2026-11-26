@@ -1,0 +1,94 @@
+{
+  "cer_overall": 0.0103,
+  "cer_threshold": 0.08,
+  "cer_pass": true,
+  "duplicate_runs": [],
+  "duplicate_pass": true,
+  "verdict": "PASS",
+  "ref_chars": 389,
+  "hyp_chars": 390,
+  "segments": 41,
+  "duplicates_removed": 3,
+  "boundary_repeats_stitched": 2,
+  "failed_chunks": 0,
+  "hotword_recall": 1.0,
+  "hotwords": [
+    {
+      "hotword": "收银机",
+      "in_reference": 2,
+      "in_transcript": 2,
+      "recalled": true
+    },
+    {
+      "hotword": "小票打印机",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "巡检工单",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "备用机",
+      "in_reference": 3,
+      "in_transcript": 3,
+      "recalled": true
+    },
+    {
+      "hotword": "上门服务单",
+      "in_reference": 2,
+      "in_transcript": 2,
+      "recalled": true
+    },
+    {
+      "hotword": "故障代码",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "电源适配器",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "月度巡检报告",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "年度维保",
+      "in_reference": 2,
+      "in_transcript": 2,
+      "recalled": true
+    },
+    {
+      "hotword": "门店编号",
+      "in_reference": 2,
+      "in_transcript": 2,
+      "recalled": true
+    }
+  ],
+  "timing": {
+    "chunks": 4,
+    "p50_s": 13.84,
+    "p95_s": 17.9,
+    "max_s": 22.8,
+    "sum_s": 56.07,
+    "wall_s": 28.4,
+    "audio_s": 89.24,
+    "rtf_summed": 0.628,
+    "rtf_wall": 0.318,
+    "concurrency": 2
+  }
+}
+
+report -> EVIDENCE/offline-20261127-0310/cer_report.md
+assert cer<=8%: PASS (1.03%)
+assert no duplicated run >= 8: PASS (0 found)
+verdict: PASS

@@ -1,0 +1,7 @@
+{
+  "packets_total": 239,
+  "packets_non_loopback": 0,
+  "non_loopback_samples": [],
+  "verdict": "PASS",
+  "note": "capture taken inside a container started with --network none"
+}

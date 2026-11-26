@@ -1,0 +1,9 @@
+2026-11-27 03:12:29,935 INFO httpx HTTP Request: GET http://127.0.0.1:8809/healthz "HTTP/1.1 200 OK"
+2026-11-27 03:12:48,027 INFO httpx HTTP Request: POST http://127.0.0.1:8809/transcribe "HTTP/1.1 200 OK"
+2026-11-27 03:12:51,845 INFO httpx HTTP Request: POST http://127.0.0.1:8809/transcribe "HTTP/1.1 200 OK"
+2026-11-27 03:12:55,991 INFO httpx HTTP Request: POST http://127.0.0.1:8809/transcribe "HTTP/1.1 200 OK"
+2026-11-27 03:13:00,212 INFO httpx HTTP Request: POST http://127.0.0.1:8809/transcribe "HTTP/1.1 200 OK"
+2026-11-27 03:13:04,378 INFO httpx HTTP Request: POST http://127.0.0.1:8809/transcribe "HTTP/1.1 200 OK"
+2026-11-27 03:13:04,952 INFO httpx HTTP Request: POST http://127.0.0.1:8809/transcribe "HTTP/1.1 200 OK"
+2026-11-27 03:13:04,965 INFO asr_adapter.pipeline transcription done: chunks 6/6 ok, segments 61, duplicates removed 5, boundary repeats stitched 1, requests 6
+2026-11-27 03:13:04,967 INFO asr_adapter.cli draft written to out/a/transcript.json

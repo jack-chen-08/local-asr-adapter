@@ -1,0 +1,94 @@
+{
+  "cer_overall": 0.0184,
+  "cer_threshold": 0.08,
+  "cer_pass": true,
+  "duplicate_runs": [],
+  "duplicate_pass": true,
+  "verdict": "PASS",
+  "ref_chars": 544,
+  "hyp_chars": 552,
+  "segments": 61,
+  "duplicates_removed": 5,
+  "boundary_repeats_stitched": 1,
+  "failed_chunks": 0,
+  "hotword_recall": 1.0,
+  "hotwords": [
+    {
+      "hotword": "玥合冷链",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "青浦仓",
+      "in_reference": 3,
+      "in_transcript": 3,
+      "recalled": true
+    },
+    {
+      "hotword": "温控箱",
+      "in_reference": 2,
+      "in_transcript": 2,
+      "recalled": true
+    },
+    {
+      "hotword": "到货验收单",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "部分拒收单",
+      "in_reference": 2,
+      "in_transcript": 2,
+      "recalled": true
+    },
+    {
+      "hotword": "返利点位",
+      "in_reference": 2,
+      "in_transcript": 2,
+      "recalled": true
+    },
+    {
+      "hotword": "温控曲线",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "补冷媒",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "干线调度",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "季度对账单",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    }
+  ],
+  "timing": {
+    "chunks": 6,
+    "p50_s": 8.38,
+    "p95_s": 18.09,
+    "max_s": 21.91,
+    "sum_s": 69.46,
+    "wall_s": 35.03,
+    "audio_s": 142.89,
+    "rtf_summed": 0.486,
+    "rtf_wall": 0.245,
+    "concurrency": 2
+  }
+}
+
+report -> EVIDENCE/run-20261127-0312/a/cer_report.md
+assert cer<=8%: PASS (1.84%)
+assert no duplicated run >= 8: PASS (0 found)
+verdict: PASS

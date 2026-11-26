@@ -15,24 +15,33 @@ and a failure list a human can act on.
 |---|---|
 | `src/asr_adapter/config.py` | env-only settings; a missing `IP_ASR_URL` fails loudly（缺地址直接报错，不静默回退公网） |
 | `src/asr_adapter/client.py` | one HTTP call per chunk, retry policy, local→global offset |
-| `src/asr_adapter/dedupe.py` | drops the duplicate copy of a sentence in the overlap region |
+| `src/asr_adapter/dedupe.py` | drops a duplicated sentence, then stitches the words two chunks both heard |
 | `src/asr_adapter/pipeline.py` | bounded concurrency, ordered assembly, per-chunk timing, partial-failure report |
 | `src/asr_adapter/cli.py` | end-to-end entry point, exit codes 0 / 2 / 3 |
 | `service/server.py` | FastAPI wrapper around FunASR Paraformer, `/healthz` + `/transcribe` |
 | `Dockerfile.asr` | bakes the model at build time so runtime needs no network |
 | `Dockerfile.adapter` | client-only image |
 | `scripts/split_audio.py` | cuts a WAV into overlapping chunks + `chunks.json` |
-| `eval/make_fixtures.py` | regenerates the synthetic fixture (TTS, fictional dialogue) |
-| `eval/compute_cer.py` | CER, per-turn CER, hotword recall, RTF |
+| `eval/make_fixtures.py` | regenerates the three synthetic fixtures (TTS, fictional dialogue) |
+| `eval/compute_cer.py` | CER, per-turn CER, hotword recall, RTF, duplicate runs; non-zero exit on assertion failure |
+| `scripts/run_offline_evidence.sh` | builds the image, runs it with `--network none`, captures packets, scores |
 
 ## Quick start
 
 ```bash
 docker compose up -d asr                       # load/health gate; model already inside
-python scripts/split_audio.py call.wav data --chunk 30 --overlap 2
+python scripts/split_audio.py eval/fixtures/dialogue_b.wav data/b --chunk 30 --overlap 2
 IP_ASR_URL=http://127.0.0.1:8809 IP_ASR_CONCURRENCY=2 \
-  python -m asr_adapter.cli --chunks data/chunks.json --out out/transcript.json \
-                            --hotwords "玥合冷链,青浦仓,温控箱"
+  python -m asr_adapter.cli --chunks data/b/chunks.json --out out/b/transcript.json \
+                            --hotwords "收银机,小票打印机,巡检工单,备用机,上门服务单"
+python eval/compute_cer.py --transcript out/b/transcript.json \
+                           --truth eval/fixtures/ground_truth_b.json      # exit 0 only if CER ≤ 8% and no ≥8-char repeat
+```
+
+Offline proof, one command end to end (build → `--network none` run → packet capture → score):
+
+```bash
+bash scripts/run_offline_evidence.sh        # needs Docker; ~8 min first time, then cached
 ```
 
 Exit codes: `0` every chunk transcribed, `2` configuration/service-unhealthy, `3` partial —

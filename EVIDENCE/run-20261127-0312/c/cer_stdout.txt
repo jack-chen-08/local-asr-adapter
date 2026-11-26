@@ -1,0 +1,94 @@
+{
+  "cer_overall": 0.0261,
+  "cer_threshold": 0.08,
+  "cer_pass": true,
+  "duplicate_runs": [],
+  "duplicate_pass": true,
+  "verdict": "PASS",
+  "ref_chars": 614,
+  "hyp_chars": 624,
+  "segments": 63,
+  "duplicates_removed": 3,
+  "boundary_repeats_stitched": 4,
+  "failed_chunks": 0,
+  "hotword_recall": 1.0,
+  "hotwords": [
+    {
+      "hotword": "多功能厅",
+      "in_reference": 3,
+      "in_transcript": 3,
+      "recalled": true
+    },
+    {
+      "hotword": "读者证",
+      "in_reference": 2,
+      "in_transcript": 2,
+      "recalled": true
+    },
+    {
+      "hotword": "借阅证",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "逾期罚金",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "自助还书机",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "馆藏检索",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "续借",
+      "in_reference": 3,
+      "in_transcript": 3,
+      "recalled": true
+    },
+    {
+      "hotword": "场地占用承诺书",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "通借通还",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "集体借阅",
+      "in_reference": 3,
+      "in_transcript": 3,
+      "recalled": true
+    }
+  ],
+  "timing": {
+    "chunks": 8,
+    "p50_s": 7.53,
+    "p95_s": 8.31,
+    "max_s": 8.41,
+    "sum_s": 55.65,
+    "wall_s": 28.23,
+    "audio_s": 198.71,
+    "rtf_summed": 0.28,
+    "rtf_wall": 0.142,
+    "concurrency": 2
+  }
+}
+
+report -> EVIDENCE/run-20261127-0312/c/cer_report.md
+assert cer<=8%: PASS (2.61%)
+assert no duplicated run >= 8: PASS (0 found)
+verdict: PASS

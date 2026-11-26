@@ -1,0 +1,352 @@
+{
+  "cer_overall": 0.0261,
+  "cer_threshold": 0.08,
+  "cer_pass": true,
+  "duplicate_runs": [],
+  "duplicate_pass": true,
+  "verdict": "PASS",
+  "ref_chars": 614,
+  "hyp_chars": 624,
+  "segments": 63,
+  "duplicates_removed": 3,
+  "boundary_repeats_stitched": 4,
+  "failed_chunks": 0,
+  "hotword_recall": 1.0,
+  "hotwords": [
+    {
+      "hotword": "多功能厅",
+      "in_reference": 3,
+      "in_transcript": 3,
+      "recalled": true
+    },
+    {
+      "hotword": "读者证",
+      "in_reference": 2,
+      "in_transcript": 2,
+      "recalled": true
+    },
+    {
+      "hotword": "借阅证",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "逾期罚金",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "自助还书机",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "馆藏检索",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "续借",
+      "in_reference": 3,
+      "in_transcript": 3,
+      "recalled": true
+    },
+    {
+      "hotword": "场地占用承诺书",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "通借通还",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "集体借阅",
+      "in_reference": 3,
+      "in_transcript": 3,
+      "recalled": true
+    }
+  ],
+  "timing": {
+    "chunks": 8,
+    "p50_s": 7.53,
+    "p95_s": 8.31,
+    "max_s": 8.41,
+    "sum_s": 55.65,
+    "wall_s": 28.23,
+    "audio_s": 198.71,
+    "rtf_summed": 0.28,
+    "rtf_wall": 0.142,
+    "concurrency": 2
+  },
+  "turns": [
+    {
+      "speaker": "客服",
+      "start_ms": 0,
+      "ref_chars": 17,
+      "hyp_chars": 17,
+      "cer": 0.0588,
+      "ref": "您好，临河社区图书馆，请问需要什么帮助。",
+      "hyp": "你好，临河社区图书馆，请问需要什么帮助？"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 5652,
+      "ref_chars": 19,
+      "hyp_chars": 19,
+      "cer": 0.0,
+      "ref": "我想问一下，多功能厅这个周末还能不能预约。",
+      "hyp": "我想问一下，多功能厅，这个周末还能不能预约？"
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 11784,
+      "ref_chars": 26,
+      "hyp_chars": 26,
+      "cer": 0.0,
+      "ref": "您是给单位活动预约，还是个人读书会用，两种情况流程不一样。",
+      "hyp": "您是给单位活动预约，还是个人读书会用两种情况，流程不一样，"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 19308,
+      "ref_chars": 21,
+      "hyp_chars": 21,
+      "cer": 0.0,
+      "ref": "是我们读书小组，一共八个人，周六下午两点到四点。",
+      "hyp": "是我们读书小组，一共八个人，周六下午两点到四点，"
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 26808,
+      "ref_chars": 24,
+      "hyp_chars": 24,
+      "cer": 0.0,
+      "ref": "周六下午多功能厅已经有一场亲子手工，下午三点半结束。",
+      "hyp": "周六下午多功能厅已经有一场。亲子手工下午三点半结束。"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 34068,
+      "ref_chars": 17,
+      "hyp_chars": 29,
+      "cer": 0.7059,
+      "ref": "那能不能从三点半开始，我们延到五点半。",
+      "hyp": "那能不能从三点半开始，我们延到五点半可以三点半到五点半两小时，"
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 39768,
+      "ref_chars": 28,
+      "hyp_chars": 35,
+      "cer": 0.25,
+      "ref": "可以，三点半到五点半两小时，中间留十分钟清场，需要您的读者证号。",
+      "hyp": "我们延到五点半可以三点半到五点半两小时，中间留十分钟清场，需要您的读者证号。"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 48180,
+      "ref_chars": 18,
+      "hyp_chars": 21,
+      "cer": 0.1667,
+      "ref": "读者证号我记不清了，是用手机号办的那张。",
+      "hyp": "读者证号我记不清了，是用手机号办的那张手机号，"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 53976,
+      "ref_chars": 19,
+      "hyp_chars": 41,
+      "cer": 1.2105,
+      "ref": "手机号尾号是二零八八，姓名的第二个字是慧。",
+      "hyp": "是用手机号办的那张手机号，尾号是二零八八姓名的。爸爸姓名的第二个字是会查到您的借阅证了，"
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 60948,
+      "ref_chars": 25,
+      "hyp_chars": 38,
+      "cer": 0.52,
+      "ref": "查到您的借阅证了，还有三本书在借，其中一本已经逾期四天。",
+      "hyp": "爸爸姓名的第二个字是会查到您的借阅证了，还有三本书在借其中一本已经逾期、四天逾期。"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 68520,
+      "ref_chars": 18,
+      "hyp_chars": 20,
+      "cer": 0.1111,
+      "ref": "逾期那本我今天下午拿过来还，罚金怎么算。",
+      "hyp": "四天逾期。那本我今天下午拿过来还罚金怎么算？"
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 74772,
+      "ref_chars": 27,
+      "hyp_chars": 27,
+      "cer": 0.0,
+      "ref": "逾期罚金每天两毛，四天是八毛，还书时在自助还书机上直接结清。",
+      "hyp": "逾期罚金每天两毛四天是八毛，还书时在自助还书机上直接结清，"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 83712,
+      "ref_chars": 17,
+      "hyp_chars": 32,
+      "cer": 0.8824,
+      "ref": "那续借怎么弄，另外两本我还想再看一周。",
+      "hyp": "那续借怎么弄？另外两本我还想再看一周续借在馆藏检索里点续借一次七天，"
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 89364,
+      "ref_chars": 28,
+      "hyp_chars": 42,
+      "cer": 0.5,
+      "ref": "续借在馆藏检索里点续借，一次七天，最多续两次，被预约的书不能续。",
+      "hyp": "另外两本我还想再看一周续借在馆藏检索里点续借一次七天，最多续两次被预约的书不能续明白了，"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 98064,
+      "ref_chars": 18,
+      "hyp_chars": 31,
+      "cer": 0.7222,
+      "ref": "明白了，场地预约要交押金吗，能不能开发票。",
+      "hyp": "最多续两次被预约的书不能续明白了，场地预约要交押金吗？能不能开发票？"
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 104316,
+      "ref_chars": 21,
+      "hyp_chars": 32,
+      "cer": 0.5714,
+      "ref": "公益读书会免押金，只需要签一份场地占用承诺书。",
+      "hyp": "公益读书，惠免押金，只需要签一份场地占用承诺书发票可以开抬头写单位名。"
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 111072,
+      "ref_chars": 25,
+      "hyp_chars": 39,
+      "cer": 0.56,
+      "ref": "发票可以开，抬头写单位名称，活动结束三个工作日发电子票。",
+      "hyp": "只需要签一份场地占用承诺书发票可以开抬头写单位名。已称活动结束三个工作日发电子票。"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 118884,
+      "ref_chars": 15,
+      "hyp_chars": 34,
+      "cer": 1.2667,
+      "ref": "那我把八个人的名单发到哪个邮箱。",
+      "hyp": "那我把八个人的名单发到哪个邮箱发到管理的公共邮箱主题鞋场地预约加日期，"
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 124056,
+      "ref_chars": 27,
+      "hyp_chars": 45,
+      "cer": 0.7778,
+      "ref": "发到馆里的公共邮箱，主题写场地预约加日期，我这边收到就登记。",
+      "hyp": "那我把八个人的名单发到哪个邮箱发到管理的公共邮箱主题鞋场地预约加日期，我这边收到就登记多功能，"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 132012,
+      "ref_chars": 21,
+      "hyp_chars": 29,
+      "cer": 0.381,
+      "ref": "多功能厅里有投影和音响吗，我们自己带了笔记本。",
+      "hyp": "我这边收到就登记多功能，厅里，有投影和音响吗？我们自己带了笔记本，"
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 139224,
+      "ref_chars": 24,
+      "hyp_chars": 24,
+      "cer": 0.0,
+      "ref": "有投影和无线话筒，接口是高清线，音响需要提前一天调试。",
+      "hyp": "有投影和无线话筒接。口是高清线音响需要提前一天调试。"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 147084,
+      "ref_chars": 13,
+      "hyp_chars": 13,
+      "cer": 0.0,
+      "ref": "那周五能不能先去看一下设备。",
+      "hyp": "那周五能不能先去看一下设备？"
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 151440,
+      "ref_chars": 21,
+      "hyp_chars": 21,
+      "cer": 0.0,
+      "ref": "可以，周五上午十点我在前台等您，带您走一遍设备。",
+      "hyp": "可以周五上午十点，我在前台等您带您走一遍设备。"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 158052,
+      "ref_chars": 21,
+      "hyp_chars": 22,
+      "cer": 0.0476,
+      "ref": "还有一件事，我们想借一批同主题的书，大概二十本。",
+      "hyp": "还有一件事儿，我们想借一批同主题的书，大概二十本，"
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 165168,
+      "ref_chars": 23,
+      "hyp_chars": 26,
+      "cer": 0.1304,
+      "ref": "同主题二十本可以走通借通还的集体借阅，期限三十天。",
+      "hyp": "同主题二十本可以走通，借通还的集体借阅其。通环期限三十天"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 172284,
+      "ref_chars": 11,
+      "hyp_chars": 11,
+      "cer": 0.0,
+      "ref": "集体借阅需要单位证明吗。",
+      "hyp": "集体借阅需要单位证明吗？"
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 177024,
+      "ref_chars": 27,
+      "hyp_chars": 27,
+      "cer": 0.0,
+      "ref": "需要一份读书小组的登记表和负责人身份证复印件，其他不需要。",
+      "hyp": "需要一份读书小组的登记表和负责人身份证复印件，其他不需要。"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 184884,
+      "ref_chars": 21,
+      "hyp_chars": 21,
+      "cer": 0.0,
+      "ref": "好，我明天上午把材料送过来，顺便把逾期的书还了。",
+      "hyp": "好，我明天上午把材料送过来，顺便把逾期的书还了。"
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 191664,
+      "ref_chars": 22,
+      "hyp_chars": 22,
+      "cer": 0.0,
+      "ref": "好的，我把场地和集体借阅都先占位，材料到了再确认。",
+      "hyp": "好的，我把场地和集体借阅都先占位材料到了再确认。"
+    }
+  ]
+}

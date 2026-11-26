@@ -1,0 +1,13 @@
+# Build context: the model weights are copied in on purpose; everything else is source.
+.venv/
+.git/
+.github/
+EVIDENCE/
+out/
+data/
+tests/
+__pycache__/
+*.pyc
+eval/fixtures/_probe.mp3
+eval/fixtures/dialogue.wav
+eval/fixtures/dialogue_c.wav

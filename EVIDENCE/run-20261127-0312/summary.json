@@ -1,0 +1,26 @@
+{
+  "max_cer": 0.08,
+  "runs": [
+    {
+      "id": "a",
+      "audio": "dialogue.wav",
+      "duration_s": 142.9,
+      "cer": 1.84,
+      "verdict": "PASS"
+    },
+    {
+      "id": "b",
+      "audio": "dialogue_b.wav",
+      "duration_s": 89.2,
+      "cer": 1.03,
+      "verdict": "PASS"
+    },
+    {
+      "id": "c",
+      "audio": "dialogue_c.wav",
+      "duration_s": 198.7,
+      "cer": 2.61,
+      "verdict": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "max_cer": 0.08,
+  "fixtures": [
+    {
+      "id": "a",
+      "audio": "dialogue.wav",
+      "truth": "ground_truth.json",
+      "duration_ms": 142888,
+      "turns": 23,
+      "voices": {
+        "客户": "zh-CN-YunxiNeural",
+        "客服": "zh-CN-XiaoxiaoNeural"
+      },
+      "rate": "0%",
+      "hotwords": [
+        "玥合冷链",
+        "青浦仓",
+        "温控箱",
+        "到货验收单",
+        "部分拒收单",
+        "返利点位",
+        "温控曲线",
+        "补冷媒",
+        "干线调度",
+        "季度对账单"
+      ]
+    },
+    {
+      "id": "b",
+      "audio": "dialogue_b.wav",
+      "truth": "ground_truth_b.json",
+      "duration_ms": 89236,
+      "turns": 17,
+      "voices": {
+        "客户": "zh-CN-YunjianNeural",
+        "客服": "zh-CN-XiaoyiNeural"
+      },
+      "rate": "+15%",
+      "hotwords": [
+        "收银机",
+        "小票打印机",
+        "巡检工单",
+        "备用机",
+        "上门服务单",
+        "故障代码",
+        "配件调拨",
+        "月度巡检报告",
+        "年度维保",
+        "门店编号"
+      ]
+    },
+    {
+      "id": "c",
+      "audio": "dialogue_c.wav",
+      "truth": "ground_truth_c.json",
+      "duration_ms": 198708,
+      "turns": 29,
+      "voices": {
+        "客户": "zh-CN-liaoning-XiaobeiNeural",
+        "客服": "zh-CN-YunxiaNeural"
+      },
+      "rate": "-10%",
+      "hotwords": [
+        "多功能厅",
+        "读者证",
+        "借阅证",
+        "逾期罚金",
+        "自助还书机",
+        "馆藏检索",
+        "续借",
+        "场地占用承诺书",
+        "通借通还",
+        "集体借阅"
+      ]
+    }
+  ]
+}

@@ -15,6 +15,7 @@ import os
 import re
 import tempfile
 import time
+from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
@@ -30,6 +31,30 @@ DEVICE = os.getenv("IP_ASR_DEVICE", "cpu")
 # engine returns one blob per chunk and the overlap region can never be de-duplicated.
 VAD_MODEL = os.getenv("IP_ASR_VAD_MODEL", "fsmn-vad")
 PUNC_MODEL = os.getenv("IP_ASR_PUNC_MODEL", "ct-punc-c")
+
+
+def resolve_model(ref: str) -> str:
+    """Prefer the weights baked next to the service over a registry name.
+
+    A bare name ("paraformer-zh") makes FunASR look the model up in its registry / ModelScope,
+    which raises `AssertionError: paraformer-zh is not registered` once the container has no
+    network. Any directory that already exists — an absolute path or `$IP_ASR_MODEL_DIR/<ref>`
+    — is handed to FunASR as a local path instead, which is what the baked image needs.
+    """
+    if not ref:
+        return ref
+    path = Path(ref)
+    if path.is_absolute() and path.exists():
+        return str(path)
+    local = Path(MODEL_DIR) / ref
+    if local.exists():
+        return str(local)
+    return ref
+
+
+MODEL_NAME = resolve_model(MODEL_NAME)
+VAD_MODEL = resolve_model(VAD_MODEL)
+PUNC_MODEL = resolve_model(PUNC_MODEL)
 VAD_MAX_SEGMENT_MS = int(os.getenv("IP_ASR_VAD_MAX_SEGMENT_MS", "30000"))
 
 app = FastAPI(title="local-asr-service", version="1.0.0")

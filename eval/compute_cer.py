@@ -68,11 +68,36 @@ def hotword_recall(hotwords: list[str], ref_text: str, hyp_text: str) -> list[di
     return rows
 
 
+def duplicated_runs(text: str, min_chars: int = 12) -> list[dict]:
+    """Find substrings that occur more than once in the final transcript.
+
+    A duplicated 12+ character run is the signature of an overlap boundary that was not
+    de-duplicated: the same words are emitted by two adjacent chunks and both survive.
+    Natural speech rarely repeats twelve identical characters, so the threshold keeps the
+    assertion from flagging ordinary repetition of short phrases.
+    """
+    n = norm(text)
+    first: dict[str, int] = {}
+    hits: list[dict] = []
+    for i in range(max(0, len(n) - min_chars + 1)):
+        gram = n[i:i + min_chars]
+        if gram in first:
+            if not any(h["text"] == gram for h in hits):
+                hits.append({"text": gram, "first_at": first[gram], "again_at": i})
+        else:
+            first[gram] = i
+    return hits
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--transcript", required=True, type=Path)
     parser.add_argument("--truth", type=Path, default=Path("eval/fixtures/ground_truth.json"))
     parser.add_argument("--out", type=Path, default=None, help="write a markdown report here")
+    parser.add_argument("--max-cer", type=float, default=0.08,
+                        help="fail the run when the overall CER exceeds this value")
+    parser.add_argument("--min-dup-chars", type=int, default=8,
+                        help="shortest repeated run treated as an overlap duplicate")
     args = parser.parse_args()
 
     doc = json.loads(args.transcript.read_text(encoding="utf-8"))
@@ -101,12 +126,21 @@ def main() -> int:
         "concurrency": stats.get("concurrency"),
     }
 
+    dups = duplicated_runs(hyp_text, args.min_dup_chars)
+    cer_ok = overall <= args.max_cer
+    dup_ok = not dups
     result = {
         "cer_overall": round(overall, 4),
+        "cer_threshold": args.max_cer,
+        "cer_pass": cer_ok,
+        "duplicate_runs": dups,
+        "duplicate_pass": dup_ok,
+        "verdict": "PASS" if (cer_ok and dup_ok) else "FAIL",
         "ref_chars": len(norm(ref_text)),
         "hyp_chars": len(norm(hyp_text)),
         "segments": len(segments),
         "duplicates_removed": stats.get("removed_duplicates"),
+        "boundary_repeats_stitched": stats.get("stitched_repeats"),
         "failed_chunks": stats.get("chunks_failed"),
         "hotword_recall": round(sum(1 for h in hw if h["recalled"]) / len(hw), 3) if hw else None,
         "hotwords": hw,
@@ -123,6 +157,13 @@ def main() -> int:
             f"- **CER overall: {overall*100:.2f}%**  ({len(norm(ref_text))} reference characters)",
             f"- hotword recall: {result['hotword_recall']*100:.0f}% ({sum(1 for h in hw if h['recalled'])}/{len(hw)})",
             f"- duplicate segments removed by overlap logic: {stats.get('removed_duplicates')}",
+            "",
+            "## Assertions（脚本断言，失败即非零退出码）",
+            "",
+            f"- CER <= {args.max_cer:.0%}: {overall*100:.2f}% → {'PASS' if cer_ok else 'FAIL'}",
+            f"- 无跨块重复句（重复片段 >= {args.min_dup_chars} 字）: "
+            f"{'PASS' if dup_ok else 'FAIL — ' + str([d['text'] for d in dups[:3]])}",
+            f"- 总判定: **{result['verdict']}**",
             f"- failed chunks: {stats.get('chunks_failed')}",
             "",
             "## Timing",
@@ -153,7 +194,14 @@ def main() -> int:
         args.out.with_suffix(".json").write_text(
             json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8"
         )
-    return 0
+
+    print(f"assert cer<={args.max_cer:.0%}: {'PASS' if cer_ok else 'FAIL'} ({overall*100:.2f}%)")
+    print(f"assert no duplicated run >= {args.min_dup_chars}: "
+          f"{'PASS' if dup_ok else 'FAIL'} ({len(dups)} found)")
+    print(f"verdict: {result['verdict']}")
+    if cer_ok and dup_ok:
+        return 0
+    return 5 if not cer_ok and dup_ok else (6 if cer_ok else 7)
 
 
 if __name__ == "__main__":

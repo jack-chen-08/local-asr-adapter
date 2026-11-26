@@ -1,5 +1,7 @@
-# Local ASR service image. The model is downloaded at build time and baked in, so the
-# running container needs no internet (verified with `docker run --network none`).
+# Local ASR service image. The model is either copied from `models/` in the build context or
+# downloaded at build time, so the running container needs no internet. The offline run is
+# verified with `docker run --network none` plus an in-container tcpdump capture
+# (see scripts/run_offline_evidence.sh).
 FROM python:3.12-slim
 
 ENV PYTHONUNBUFFERED=1 \
@@ -7,13 +9,15 @@ ENV PYTHONUNBUFFERED=1 \
     IP_ASR_MODEL=paraformer-zh \
     IP_ASR_MODEL_DIR=/models \
     IP_ASR_DEVICE=cpu \
-    MODELSCOPE_CACHE=/models
+    MODELSCOPE_CACHE=/models \
+    PYTHONPATH=/app/src
 
 WORKDIR /app
 
 # ffmpeg is only needed if the caller feeds non-wav audio; chunks from the splitter are wav.
+# tcpdump is baked in so the offline run can record its own egress evidence.
 RUN apt-get update \
- && apt-get install -y --no-install-recommends ffmpeg curl \
+ && apt-get install -y --no-install-recommends ffmpeg curl tcpdump iproute2 \
  && rm -rf /var/lib/apt/lists/*
 
 COPY requirements-service.txt ./
@@ -21,14 +25,21 @@ COPY requirements-service.txt ./
 RUN pip install --index-url https://download.pytorch.org/whl/cpu "torch==2.6.0+cpu" "torchaudio==2.6.0+cpu" \
  && pip install -r requirements-service.txt
 
-# Bake the model: this is the only network step, and it happens at build time.
-# MODELSCOPE_CACHE=/models makes the weights land inside the image.
-RUN python -c "from funasr import AutoModel; \
+# Bake the model. `models/` is git-ignored, so a clean clone carries only models/.keep and the
+# weights are fetched here — the one network step, and it happens at build time.
+COPY models/ /models/
+RUN if [ -d /models/paraformer-zh ]; then echo "model copied from build context"; \
+    else python -c "from funasr import AutoModel; \
 AutoModel(model='paraformer-zh', model_revision='v2.0.4', device='cpu', \
-disable_update=True, disable_pbar=True, disable_log=True)" \
+disable_update=True, disable_pbar=True, disable_log=True)"; fi \
  && du -sh /models
 
+COPY src/ /app/src/
 COPY service/server.py /app/server.py
+COPY scripts/split_audio.py /app/scripts/split_audio.py
+COPY scripts/offline_entrypoint.sh /app/scripts/offline_entrypoint.sh
+COPY eval/fixtures/dialogue_b.wav /app/fixtures/dialogue_b.wav
+COPY eval/fixtures/ground_truth_b.json /app/fixtures/ground_truth_b.json
 
 EXPOSE 8809
 HEALTHCHECK --interval=10s --timeout=3s --start-period=20s --retries=6 \

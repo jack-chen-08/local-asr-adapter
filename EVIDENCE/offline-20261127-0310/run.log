@@ -1,0 +1,22 @@
+== interfaces in the container
+# interfaces (docker run --network none leaves only loopback)
+1: lo    inet 127.0.0.1/8 scope host lo\       valid_lft forever preferred_lft forever
+1: lo    inet6 ::1/128 scope host proto kernel_lo \       valid_lft forever preferred_lft forever
+
+# reachability probe (expected to fail: no route out)
+curl: (6) Could not resolve host: example.com
+curl_rc=6
+== starting tcpdump
+== starting ASR service
+== healthy after 2s: {"status":"ok","model":"/models/paraformer-zh","device":"cpu","model_loaded":false,"load_seconds":null}
+4 chunks -> /tmp/chunks/chunks.json
+== transcribing with no network
+adapter_rc=0
+== packet record
+{
+  "packets_total": 239,
+  "packets_non_loopback": 0,
+  "non_loopback_samples": [],
+  "verdict": "PASS",
+  "note": "capture taken inside a container started with --network none"
+}

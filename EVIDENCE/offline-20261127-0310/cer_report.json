@@ -1,0 +1,244 @@
+{
+  "cer_overall": 0.0103,
+  "cer_threshold": 0.08,
+  "cer_pass": true,
+  "duplicate_runs": [],
+  "duplicate_pass": true,
+  "verdict": "PASS",
+  "ref_chars": 389,
+  "hyp_chars": 390,
+  "segments": 41,
+  "duplicates_removed": 3,
+  "boundary_repeats_stitched": 2,
+  "failed_chunks": 0,
+  "hotword_recall": 1.0,
+  "hotwords": [
+    {
+      "hotword": "收银机",
+      "in_reference": 2,
+      "in_transcript": 2,
+      "recalled": true
+    },
+    {
+      "hotword": "小票打印机",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "巡检工单",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "备用机",
+      "in_reference": 3,
+      "in_transcript": 3,
+      "recalled": true
+    },
+    {
+      "hotword": "上门服务单",
+      "in_reference": 2,
+      "in_transcript": 2,
+      "recalled": true
+    },
+    {
+      "hotword": "故障代码",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "电源适配器",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "月度巡检报告",
+      "in_reference": 1,
+      "in_transcript": 1,
+      "recalled": true
+    },
+    {
+      "hotword": "年度维保",
+      "in_reference": 2,
+      "in_transcript": 2,
+      "recalled": true
+    },
+    {
+      "hotword": "门店编号",
+      "in_reference": 2,
+      "in_transcript": 2,
+      "recalled": true
+    }
+  ],
+  "timing": {
+    "chunks": 4,
+    "p50_s": 13.84,
+    "p95_s": 17.9,
+    "max_s": 22.8,
+    "sum_s": 56.07,
+    "wall_s": 28.4,
+    "audio_s": 89.24,
+    "rtf_summed": 0.628,
+    "rtf_wall": 0.318,
+    "concurrency": 2
+  },
+  "turns": [
+    {
+      "speaker": "客服",
+      "start_ms": 0,
+      "ref_chars": 22,
+      "hyp_chars": 36,
+      "cer": 0.7273,
+      "ref": "您好，欣野烘焙门店支持热线，请问设备出了什么问题。",
+      "hyp": "你好，新野烘焙门店支持热线，请问设备出了什么问题？我这里是新港路店的店长收银机，"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 5204,
+      "ref_chars": 22,
+      "hyp_chars": 31,
+      "cer": 0.4545,
+      "ref": "我这里是星港路店的店长，收银机今天早上开不了机。",
+      "hyp": "我这里是新港路店的店长收银机，今天早上开不了机，麻烦报一下门店编号。"
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 10048,
+      "ref_chars": 24,
+      "hyp_chars": 34,
+      "cer": 0.4167,
+      "ref": "麻烦报一下门店编号，我看一下这台机器的巡检工单记录。",
+      "hyp": "麻烦报一下门店编号。我看一下这台机器的巡检工单记录，门店编号是 CY 三四七，"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 15084,
+      "ref_chars": 25,
+      "hyp_chars": 30,
+      "cer": 0.2,
+      "ref": "门店编号是 C Y 三四七，机器上贴的资产标签尾号是九零二。",
+      "hyp": "门店编号是 CY 三四七，机器上贴的资产标签，尾号是九零二 CY 三四七，"
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 20888,
+      "ref_chars": 26,
+      "hyp_chars": 40,
+      "cer": 0.5385,
+      "ref": "C Y 三四七，资产尾号九零二，最后一次巡检是上周二，状态正常。",
+      "hyp": "尾号是九零二 CY 三四七，资产尾号九零二。最后一次巡检是上周二状态正常，现在开机灯一直闪，"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 27316,
+      "ref_chars": 26,
+      "hyp_chars": 44,
+      "cer": 0.6923,
+      "ref": "现在开机灯一直闪，屏幕停在启动画面，小票打印机也没有反应。",
+      "hyp": "现在开机灯一直闪，屏幕停在启动画面小票打印机也没有反应。您先把电源适配器换到备用机那条线试试，"
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 33144,
+      "ref_chars": 27,
+      "hyp_chars": 30,
+      "cer": 0.1111,
+      "ref": "您先把电源适配器换到备用机那条线试试，看看是不是供电不稳。",
+      "hyp": "您先把电源适配器换到备用机那条线试试，看看是不是供电不稳，换过了，"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 38900,
+      "ref_chars": 21,
+      "hyp_chars": 33,
+      "cer": 0.5714,
+      "ref": "换过了，还是老样子，备用机能不能先送过来顶一天。",
+      "hyp": "换过了，还是老样子，备用机能不能先送过来？顶一天早高峰马上开始没有收银机，"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 43984,
+      "ref_chars": 18,
+      "hyp_chars": 37,
+      "cer": 1.0556,
+      "ref": "早高峰马上开始，没有收银机只能手写小票。",
+      "hyp": "顶一天早高峰马上开始没有收银机，只能手写小票。我给您开一张加急上门服务单工程师，"
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 48492,
+      "ref_chars": 23,
+      "hyp_chars": 26,
+      "cer": 0.1304,
+      "ref": "我给您开一张加急上门服务单，工程师今天十点前到店。",
+      "hyp": "我给您开一张加急上门服务单工程师，今天十点前到店备用机，"
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 53648,
+      "ref_chars": 18,
+      "hyp_chars": 36,
+      "cer": 1.0,
+      "ref": "备用机从区域仓调拨，随工程师一起带过去。",
+      "hyp": "今天十点前到店备用机，从区域仓调拨，随工程师一起带过去。是那我这边需要准备什么？"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 58012,
+      "ref_chars": 19,
+      "hyp_chars": 22,
+      "cer": 0.1579,
+      "ref": "那我这边需要准备什么，旧的机器要不要留着。",
+      "hyp": "那我这边需要准备什么？旧的机器要不要留着旧机器，"
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 62136,
+      "ref_chars": 27,
+      "hyp_chars": 37,
+      "cer": 0.3704,
+      "ref": "旧机器请留着，工程师要读取故障代码，方便判断是不是主板问题。",
+      "hyp": "旧的机器要不要留着旧机器，请留着工程师要读取故障代码，方便判断是不是主板问题？好，"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 68132,
+      "ref_chars": 19,
+      "hyp_chars": 33,
+      "cer": 0.7368,
+      "ref": "好，配件要不要另外收费，我们签的是年度维保。",
+      "hyp": "好，配件要不要？另外收费我们签的是年度维保，年度维保内不收上门费和工时费。"
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 72520,
+      "ref_chars": 26,
+      "hyp_chars": 32,
+      "cer": 0.2308,
+      "ref": "年度维保内不收上门费和工时费，只有主板这种大件按成本价。",
+      "hyp": "年度维保内不收上门费和工时费。只有主板这种大件按成本价上门服务单号。"
+    },
+    {
+      "speaker": "客服",
+      "start_ms": 78444,
+      "ref_chars": 28,
+      "hyp_chars": 41,
+      "cer": 0.4643,
+      "ref": "上门服务单号我发到店长的手机上，工单结果会写进月度巡检报告。",
+      "hyp": "只有主板这种大件按成本价上门服务单号。我发到店长的手机上工单，结果会写进月度巡检报告行，"
+    },
+    {
+      "speaker": "客户",
+      "start_ms": 84464,
+      "ref_chars": 18,
+      "hyp_chars": 29,
+      "cer": 0.6111,
+      "ref": "行，我在店里等，麻烦让工程师到了直接找我。",
+      "hyp": "结果会写进月度巡检报告行，我在店里等麻烦，让工程师到了，直接找我。"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  1.302GB
+Step 1/17 : FROM python:3.12-slim
+ ---> 191083cdf6c7
+Step 2/17 : ENV PYTHONUNBUFFERED=1     PIP_NO_CACHE_DIR=1     IP_ASR_MODEL=paraformer-zh     IP_ASR_MODEL_DIR=/models     IP_ASR_DEVICE=cpu     MODELSCOPE_CACHE=/models     PYTHONPATH=/app/src
+ ---> Using cache
+ ---> bcaa2a538191
+Step 3/17 : WORKDIR /app
+ ---> Using cache
+ ---> 500addcb14ef
+Step 4/17 : RUN apt-get update  && apt-get install -y --no-install-recommends ffmpeg curl tcpdump iproute2  && rm -rf /var/lib/apt/lists/*
+ ---> Using cache
+ ---> 5e0c73e527cf
+Step 5/17 : COPY requirements-service.txt ./
+ ---> Using cache
+ ---> 4253ef8d37bf
+Step 6/17 : RUN pip install --index-url https://download.pytorch.org/whl/cpu "torch==2.6.0+cpu" "torchaudio==2.6.0+cpu"  && pip install -r requirements-service.txt
+ ---> Using cache
+ ---> 6c79fdd0bd07
+Step 7/17 : COPY models/ /models/
+ ---> Using cache
+ ---> d43bb36a4ac0
+Step 8/17 : RUN if [ -d /models/paraformer-zh ]; then echo "model copied from build context";     else python -c "from funasr import AutoModel; AutoModel(model='paraformer-zh', model_revision='v2.0.4', device='cpu', disable_update=True, disable_pbar=True, disable_log=True)"; fi  && du -sh /models
+ ---> Using cache
+ ---> 651327ad0096
+Step 9/17 : COPY src/ /app/src/
+ ---> Using cache
+ ---> 7b91a07be7e6
+Step 10/17 : COPY service/server.py /app/server.py
+ ---> b419d0f6f99c
+Step 11/17 : COPY scripts/split_audio.py /app/scripts/split_audio.py
+ ---> a3ded6dc1833
+Step 12/17 : COPY scripts/offline_entrypoint.sh /app/scripts/offline_entrypoint.sh
+ ---> 8b968c1aa8f6
+Step 13/17 : COPY eval/fixtures/dialogue_b.wav /app/fixtures/dialogue_b.wav
+ ---> 656f2137433c
+Step 14/17 : COPY eval/fixtures/ground_truth_b.json /app/fixtures/ground_truth_b.json
+ ---> b35b33af7f58
+Step 15/17 : EXPOSE 8809
+ ---> Running in 17fb7ae9fe4d
+ ---> Removed intermediate container 17fb7ae9fe4d
+ ---> e1f6b94a016b
+Step 16/17 : HEALTHCHECK --interval=10s --timeout=3s --start-period=20s --retries=6   CMD curl -fsS http://127.0.0.1:8809/healthz || exit 1
+ ---> Running in 74c33bb82c88
+ ---> Removed intermediate container 74c33bb82c88
+ ---> ed981a05ea59
+Step 17/17 : CMD ["uvicorn", "server:app", "--host", "0.0.0.0", "--port", "8809", "--workers", "1"]
+ ---> Running in 421a2514f4cf
+ ---> Removed intermediate container 421a2514f4cf
+ ---> f5fcee8aece0
+Successfully built f5fcee8aece0
+Successfully tagged ip-asr-offline:latest

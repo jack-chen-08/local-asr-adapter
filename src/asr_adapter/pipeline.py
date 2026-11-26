@@ -11,7 +11,7 @@ from typing import Any, Iterable
 
 from .client import AsrClient, AsrError
 from .config import Settings
-from .dedupe import dedupe_overlaps
+from .dedupe import dedupe_overlaps, stitch_boundary_repeats
 from .models import Chunk, Segment
 
 log = logging.getLogger("asr_adapter.pipeline")
@@ -24,6 +24,7 @@ class Transcript:
     chunks_total: int = 0
     chunks_ok: int = 0
     removed_duplicates: int = 0
+    stitched_repeats: int = 0
     requests: int = 0
     elapsed_s: float = 0.0
     hotwords: list[str] = field(default_factory=list)
@@ -43,6 +44,7 @@ class Transcript:
                 "chunks_ok": self.chunks_ok,
                 "chunks_failed": len(self.errors),
                 "removed_duplicates": self.removed_duplicates,
+                "stitched_repeats": self.stitched_repeats,
                 "requests": self.requests,
                 "elapsed_s": round(self.elapsed_s, 2),
                 "concurrency": self.concurrency,
@@ -123,14 +125,18 @@ def run_transcription(
             client.close()
 
     kept, removed = dedupe_overlaps(collected)
+    kept, stitched = stitch_boundary_repeats(kept)
     transcript.segments = kept
     transcript.removed_duplicates = removed
+    transcript.stitched_repeats = stitched
     transcript.requests = client.request_count
     transcript.elapsed_s = time.monotonic() - started
     transcript.concurrency = settings.concurrency
     log.info(
-        "transcription done: chunks %d/%d ok, segments %d, duplicates removed %d, requests %d",
-        transcript.chunks_ok, transcript.chunks_total, len(kept), removed, transcript.requests,
+        "transcription done: chunks %d/%d ok, segments %d, duplicates removed %d, "
+        "boundary repeats stitched %d, requests %d",
+        transcript.chunks_ok, transcript.chunks_total, len(kept), removed, stitched,
+        transcript.requests,
     )
     return transcript
 

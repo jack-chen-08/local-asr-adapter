@@ -1,4 +1,4 @@
-# 验收报告 · 语音转写引擎适配层（#2284）
+# 验收报告 · 语音转写引擎适配层
 
 > 中文正文，命令与变量名英文。所有数字来自 `EVIDENCE/run-*/` 中的原始产物，可逐条复核。
 
@@ -112,7 +112,7 @@ RTF 墙钟 0.245 表示 **1 小时录音约需 15 分钟**（2 路并发、8 核
 | 断网下热词召回 | 10/10 |
 | 断网下 RTF（墙钟） | 0.318（89.2 s 音频 / 28.4 s 墙钟） |
 
-镜像 `asr-offline:2284` 由 `Dockerfile.asr` 构建，模型（Paraformer + FSMN-VAD + CT-Punc，1.3 G）
+镜像 `asr-offline:latest` 由 `Dockerfile.asr` 构建，模型（Paraformer + FSMN-VAD + CT-Punc，1.3 G）
 在构建期从上下文 `models/` 拷入、运行期不下载。复跑：
 `bash scripts/run_offline_evidence.sh`（构建 → 断网跑 → 抓包回读 → 评分，一条命令到底）。
 

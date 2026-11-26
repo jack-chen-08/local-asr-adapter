@@ -5,12 +5,12 @@ INFO:     Uvicorn running on http://127.0.0.1:8809 (Press CTRL+C to quit)
 INFO:     127.0.0.1:52402 - "GET /healthz HTTP/1.1" 200 OK
 INFO:     127.0.0.1:52408 - "GET /healthz HTTP/1.1" 200 OK
 INFO:root:download models from model hub: ms
-INFO:root:Loading pretrained params from /home/ubuntuuser/clawhunt_delivery/2284_asr_adapter/models/paraformer-zh/model.pt
-INFO:root:ckpt: /home/ubuntuuser/clawhunt_delivery/2284_asr_adapter/models/paraformer-zh/model.pt
+INFO:root:Loading pretrained params from <workdir>/models/paraformer-zh/model.pt
+INFO:root:ckpt: <workdir>/models/paraformer-zh/model.pt
 INFO:root:scope_map: ['module.', 'None']
 INFO:root:excludes: None
-INFO:root:Loading ckpt: /home/ubuntuuser/clawhunt_delivery/2284_asr_adapter/models/paraformer-zh/model.pt, status: <All keys matched successfully>
-INFO:asr_service:model /home/ubuntuuser/clawhunt_delivery/2284_asr_adapter/models/paraformer-zh loaded in 5.8s on cpu
+INFO:root:Loading ckpt: <workdir>/models/paraformer-zh/model.pt, status: <All keys matched successfully>
+INFO:asr_service:model <workdir>/models/paraformer-zh loaded in 5.8s on cpu
 INFO:root:Attempting to parse hotwords as str...
 INFO:root:Hotword list: ['玥合冷链', '青浦仓', '温控箱', '到货验收单', '部分拒收单', '返利点位', '温控曲线', '补冷媒', '干线调度', '季度对账单', '<s>'].
 INFO:asr_service:transcribed 960044 bytes, 1 segments in 2.30s
